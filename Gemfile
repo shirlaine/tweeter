@@ -39,6 +39,8 @@ gem 'simple_form'
 gem 'rubocop', require: false
 # Devise
 gem 'devise'
+# Faker Gem
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
