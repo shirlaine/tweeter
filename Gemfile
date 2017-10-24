@@ -45,7 +45,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1'
-
+  # Add factory bot rails add config file
+  gem 'factory_bot_rails'
 end
 
 group :development do
