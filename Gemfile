@@ -37,6 +37,8 @@ gem 'jquery-rails'
 gem 'simple_form'
 # rubocop
 gem 'rubocop', require: false
+# Devise
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
