@@ -1,6 +1,16 @@
 <h1>Tweets#new</h1>
 
   <%= simple_form_for @tweet, url: tweets_path, method: :post do |f| %>
-  <%= f.input :body, label: 'Say something!' %>
-  <%= f.button :submit %>
+    <%= f.input :body, label: 'Say something!' %>
+    <%= simple_form_for @tag, url: tags_path, method: :post do |f| %>
+    <%= f.input :name, label: 'Tag it!', placeholder: '#' %>
+    <%= f.button :submit, 'Create Tweet' %>
   <% end %>
+  <% end %>
+  <br>
+  <%= link_to 'Back to my Tweet Feed', tweets_path, method: :get %>
+  <br>
+  <%= link_to 'Back to Home', index_path, method: :get %>
+
+
+

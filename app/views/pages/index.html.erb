@@ -1,18 +1,27 @@
-<h1>Pages#index</h1>
-
-  <strong><%= @user.fullname %>'s profile (Not personalised yet)</strong>
+<center>
+  <h1>Hello <%= @user.fullname %></h1>
+  <h3>Welcome Home</h3>
+  <%= link_to 'New Tweet', new_tweet_path, method: :get %>
+  <span>-</span>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <span>-</span>
+  <%= link_to 'My tweet feed', tweets_path, method: :get %>
   <hr>
   <p>
   <% @tweets.each do |tweet| %>
-    <strong>Tweet:</strong> <%= tweet.body %>
+  <hr>
+    <h6>
+      <%= tweet.user.fullname %> @<%= link_to tweet.user.username, tweet_path(tweet), method: :get %>.<%=tweet.created_at.strftime(" %d %B %Y") %>
+      <strong> tweeted:</strong>
+    </h6>
     <br>
-    <strong>Created by:</strong> @<%= tweet.user.username %>
-    <%= link_to tweet.user.username, tweet_path(tweet), method: :get %>
+    <h5> <%= tweet.body %></h5>
+    <% tweet.tags.each do |tag| %>
+      <br>
+      #<%= tag.name %>
+    <% end %>
     <br>
-    <br>
+    <hr>
   <% end %>
   </p>
-
-  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-  <br>
-  <%= link_to 'New Tweet', new_tweet_path, method: :get %>
+</center>

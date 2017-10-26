@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: "pages#index"
 
   get '/index', to: 'pages#index'
-
-  resources :tweets
+  resources :tags, only: [:new, :create]
+  resources :tweets do
+    resources :tags, only: [:new, :create, :edit, :update]
+  end
 
 end
