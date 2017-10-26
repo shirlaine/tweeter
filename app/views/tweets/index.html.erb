@@ -1,15 +1,18 @@
-<h1>Tweets#index</h1>
-
+<center>
+<h1><%= current_user.fullname %>'s  Tweet#index</h1>
+<br>
+<hr>
 <% @tweets.each do |tweet| %>
-<p><strong>@<%= tweet.user.username %> tweeted:</strong></p>
-<p><%= tweet.body %>
-<%= link_to "Show", tweet_path(tweet), method: :get %></p>
-<% end %>
+  <p><strong>@<%= tweet.user.username %> tweeted:</strong></p>
 
+ <h5><%= link_to tweet.body, tweet_path(tweet), method: :get %></h5>
+ <br>
+ <hr>
+<% end %>
 <br>
 <%= link_to 'New tweet', new_tweet_path, method: :get %>
 <br>
-<%= link_to 'Dashboard', index_path, method: :get %>
+<%= link_to 'Back to Home', index_path, method: :get %>
 <br>
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' } %>
-
+</center>

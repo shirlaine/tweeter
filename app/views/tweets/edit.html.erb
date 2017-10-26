@@ -1,6 +1,10 @@
 <h1>Tweets#edit</h1>
-
   <%= simple_form_for @tweet, url: tweet_path, method: :put do |f| %>
-  <%= f.input :body, label: 'Say something!' %>
-  <%= f.button :submit %>
+    <%= f.input :body, label: 'Say something!' %>
+    <%= f.button :submit %>
   <% end %>
+  <br>
+  <%= link_to 'Back to my Tweet Feed', tweets_path, method: :get %>
+  <br>
+  <%= link_to 'Back to Home', index_path, method: :get %>
+

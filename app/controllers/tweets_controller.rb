@@ -8,17 +8,20 @@ class TweetsController < BaseController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @tag = @tweet.tags.find_by(params[:tag_id])
   end
 
   def new
-    @tweet = Tweet.new
+    @tweet = current_user.tweets.new
+    @tag = @tweet.tags.new
   end
 
   def create
     @tweet = current_user.tweets.new(tweet_params)
-    if @tweet.save
+    @tag = @tweet.tags.new(tag_params)
+    if @tweet.save && @tag.save
       flash[:notice] = 'Your tweet was created!'
-      redirect_to tweets_path
+      redirect_to tweet_path(@tweet)
     else
       flash[:alert] = 'Your tweet was not saved!'
       render :new
@@ -30,7 +33,7 @@ class TweetsController < BaseController
   def update
     if @tweet.update(tweet_params)
       flash[:notice] = 'Your tweet was updated!'
-      redirect_to tweets_path
+      redirect_to tweet_path(@tweet)
     else
       flash[:alert] = 'Your tweet was not updated!'
       render :edit
@@ -38,8 +41,7 @@ class TweetsController < BaseController
   end
 
   def destroy
-    @tweet =
-      @tweet.destroy
+    @tweet.destroy
     flash[:notice] = 'Your tweet has been deleted!'
     redirect_to tweets_path
   end
@@ -52,6 +54,10 @@ class TweetsController < BaseController
 
   def tweet_params
     params.require(:tweet).permit(:body)
+  end
+
+  def tag_params
+    params.require(:tag).permit(:name)
   end
 
 end
