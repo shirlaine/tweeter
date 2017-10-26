@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025133432) do
+ActiveRecord::Schema.define(version: 20171026125614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tweet_tags", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_tweet_tags_on_tag_id"
+    t.index ["tweet_id"], name: "index_tweet_tags_on_tweet_id"
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.string "body", null: false
@@ -36,5 +51,7 @@ ActiveRecord::Schema.define(version: 20171025133432) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tweet_tags", "tags"
+  add_foreign_key "tweet_tags", "tweets"
   add_foreign_key "tweets", "users"
 end
