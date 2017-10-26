@@ -1,7 +1,14 @@
-<h1>tweets#show</h1>
-
-<%= @tweet.body %>
-
-<%= link_to 'Edit Tweet', edit_tweet_path(@tweet), method: :get %>
-<%= link_to 'Delete Tweet', tweet_path(@tweet), method: :delete, data: { confirm: 'Are you sure you want to delete this tweet?'} %>
+<h1>Tweets#show</h1>
+  <br>
+  <strong>@<%= @tweet.user.username %> tweeted:</strong>
+  <%= @tweet.body %>
+  <br>
+  <br>
+  <% if @tweet.user.id == current_user.id %>
+  <p><%= link_to 'Edit Tweet', edit_tweet_path(@tweet), method: :get %></p>
+  <p><%= link_to 'Delete Tweet', tweet_path(@tweet), method: :delete, data: { confirm: 'Are you sure you want to delete this tweet?'} %></p>
+  <p><%= link_to 'Return to Home', index_path, method: :get %></p>
+  <% else %>
+  <p><%= link_to 'Return to Home', index_path, method: :get %></p>
+  <% end %>
 

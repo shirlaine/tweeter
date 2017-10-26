@@ -1,12 +1,14 @@
 class TweetsController < BaseController
 
-  before_action :prepare_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_tweet, only: [:edit, :update, :destroy]
 
   def index
     @tweets = current_user.tweets
   end
 
-  def show; end
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
 
   def new
     @tweet = Tweet.new
@@ -45,7 +47,7 @@ class TweetsController < BaseController
   private
 
   def prepare_tweet
-    @tweet = Tweet.find(params[:id])
+    @tweet = current_user.tweets.find(params[:id])
   end
 
   def tweet_params

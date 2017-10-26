@@ -1,17 +1,18 @@
-<h1>pages#index</h1>
+<h1>Pages#index</h1>
 
-<strong><%= @user.fullname %>'s profile (Not personalised yet)</strong>
-<hr>
-<p>
-<% @tweets.each do |tweet| %>
-  <strong>Tweet:</strong> <%= tweet.body %>
-  <br>
-  <strong>Created by:</strong> @<%= tweet.user.username %>
-  <br>
-  <br>
-<% end %>
-</p>
+  <strong><%= @user.fullname %>'s profile (Not personalised yet)</strong>
+  <hr>
+  <p>
+  <% @tweets.each do |tweet| %>
+    <strong>Tweet:</strong> <%= tweet.body %>
+    <br>
+    <strong>Created by:</strong> @<%= tweet.user.username %>
+    <%= link_to tweet.user.username, tweet_path(tweet), method: :get %>
+    <br>
+    <br>
+  <% end %>
+  </p>
 
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<br>
-<%= link_to 'New Tweet', new_tweet_path, method: :get %>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <br>
+  <%= link_to 'New Tweet', new_tweet_path, method: :get %>
