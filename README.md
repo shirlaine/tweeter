@@ -1,5 +1,5 @@
 # Functionality
-- Twitter clone
+- This app serves as a programming exercise to clone Twitter
 
 # Built with
 - Ruby on Rails v.5.1.4
@@ -15,5 +15,8 @@
 
 # Test
 - Tests during development use [RSpec](https://github.com/rspec/rspec), [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers), [Factory Bot Rails](https://github.com/thoughtbot/factory_bot_rails)
+
+# Heroku
+- This app can be accessed at `https://tweeter-tweet.herokuapp.com`
 
 
