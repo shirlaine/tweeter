@@ -1,0 +1,6 @@
+<h1>Tag#new</h1>
+
+  <%= simple_form_for @tag, url: tweet_tag_path, method: :put do |f| %>
+  <%= f.input :name, label: 'Tag something!' %>
+  <%= f.button :submit %>
+  <% end %>
