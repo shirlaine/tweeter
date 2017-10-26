@@ -1,6 +1,6 @@
 class TweetsController < BaseController
 
-  before_action :prepare_tweet, only: [:show, :edit, :update, :delete]
+  before_action :prepare_tweet, only: [:show, :edit, :update, :destroy]
 
   def index
     @tweets = current_user.tweets
@@ -36,7 +36,9 @@ class TweetsController < BaseController
   end
 
   def destroy
-    @tweet.destroy
+    @tweet =
+      @tweet.destroy
+    flash[:notice] = 'Your tweet has been deleted!'
     redirect_to tweets_path
   end
 
