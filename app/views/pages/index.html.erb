@@ -1,6 +1,17 @@
 <h1>pages#index</h1>
 
+<strong><%= @user.fullname %>'s profile (Not personalised yet)</strong>
+<hr>
+<p>
 <% @tweets.each do |tweet| %>
-  <%= tweet.body %>
+  <strong>Tweet:</strong> <%= tweet.body %>
+  <br>
+  <strong>Created by:</strong> @<%= tweet.user.username %>
+  <br>
+  <br>
 <% end %>
-@<%= @user.username %>
+</p>
+
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<br>
+<%= link_to 'New Tweet', new_tweet_path, method: :get %>

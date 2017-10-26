@@ -2,7 +2,7 @@ class PagesController < BaseController
 
   def index
     @user = current_user
-    @tweets = @user.tweets.all
+    @tweets = Tweet.all
   end
 
 end
