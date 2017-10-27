@@ -1,7 +1,7 @@
 class Tag < ApplicationRecord
 
   has_many :tweet_tags, dependent: :destroy
-  has_many :tweets, through: :tweet_tags
+  has_and_belongs_to_many :tweets, join_table: :tweet_tags
 
   validates :name, presence: true, length: { maximum: 15 }
 
