@@ -2,10 +2,10 @@
 
   <%= simple_form_for @tweet, url: tweets_path, method: :post do |f| %>
     <%= f.input :body, label: 'Say something!' %>
-    <%= simple_form_for @tag, url: tags_path, method: :post do |f| %>
-    <%= f.input :name, label: 'Tag it!', placeholder: '#' %>
-    <%= f.button :submit, 'Create Tweet' %>
+    <%= f.simple_fields_for :tags, url: tags_path, method: :post do |t| %>
+    <%= t.input :name, label: 'Tag it!', placeholder: '#' %>
   <% end %>
+    <%= f.button :submit, 'Create Tweet' %>
   <% end %>
   <br>
   <%= link_to 'Back to my Tweet Feed', tweets_path, method: :get %>

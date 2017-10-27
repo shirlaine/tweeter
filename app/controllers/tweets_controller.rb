@@ -8,7 +8,6 @@ class TweetsController < BaseController
 
   def show
     @tweet = Tweet.find(params[:id])
-    @tag = @tweet.tags.find_by(params[:tag_id])
   end
 
   def new
@@ -18,8 +17,7 @@ class TweetsController < BaseController
 
   def create
     @tweet = current_user.tweets.new(tweet_params)
-    @tag = @tweet.tags.new(tag_params)
-    if @tweet.save && @tag.save
+    if @tweet.save
       flash[:notice] = 'Your tweet was created!'
       redirect_to tweet_path(@tweet)
     else
@@ -53,11 +51,11 @@ class TweetsController < BaseController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:body)
+    params.require(:tweet).permit(:body, tags_attributes: [:name])
   end
 
-  def tag_params
-    params.require(:tag).permit(:name)
-  end
+  # def tag_params
+  #   params.require(:tag).permit(:name)
+  # end
 
 end
