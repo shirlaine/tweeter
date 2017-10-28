@@ -10,8 +10,22 @@ class User < ApplicationRecord
 
   has_many :tweets, dependent: :destroy
 
+  #creating assocation name.leaders
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
   has_many :leaders, through: :relationships
 
+  #creating association name.followers
+  has_many :reverse_relationships, foreign_key: :leader_id, class_name: 'Relationship', dependent: :destroy
+  has_many :followers, through: :reverse_relationships
+
+def following?(leader)
+  leaders.include?(leader)
 end
 
+def follow!(leader)
+  if leader != self && leaders.include?(leader)== fa
+    leaders<< leader
+  end
+end
+
+end
