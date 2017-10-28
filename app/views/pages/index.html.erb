@@ -6,6 +6,8 @@
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   <span>-</span>
   <%= link_to 'My tweet feed', tweets_path, method: :get %>
+  <%= link_to 'Following', leaders_user_path(@user), method: :get %>
+  <%= link_to 'Followers', followers_user_path(@user), method: :get %>
   <hr>
   <p>
   <% @tweets.each do |tweet| %>

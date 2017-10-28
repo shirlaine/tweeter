@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :tags, only: [:new, :create, :edit, :update]
   end
+  resources :users do
+    get 'leaders', on: :member
+    get 'followers', on: :member
+  end
 
 end

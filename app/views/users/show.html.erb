@@ -1,0 +1,10 @@
+<center>
+  <h1><%= @user.username %>#show profile</h1>
+    <p>Following<%= @following.count %>
+     Followers<%= @followers.count %></p>
+    <% @user.tweets.each do |tweet| %>
+    <p><%= tweet.body %></p>
+    <% end %>
+
+  <%= link_to "Back to home", index_path, method: :get %>
+</center>

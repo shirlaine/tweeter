@@ -1,0 +1,18 @@
+<center>
+  <h1>List of Followers for @<%= current_user.username %></h1>
+
+    <p><strong>Followers: </strong>
+      <% if @followers.nil? %>
+      <p>Oops no followers yet!</p>
+      <% else %>
+        <%= @followers.count %>
+      <% end %>
+    <p>
+    <strong>List of Followers: </strong>
+    <% @followers.each do |follower| %>
+    <p><%= link_to "@#{follower.username}", user_path(follower.id), method: :get %></p>
+    </p>
+    <% end %>
+
+    <p><%= link_to 'Back to Home', index_path, method: :get %></p>
+</center>
