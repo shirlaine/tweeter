@@ -1,5 +1,10 @@
 class UsersController < BaseController
 
+  def index
+    @users = User.all
+    @tweets = Tweet.all
+  end
+
   def leaders
     @users = User.all
     @following = current_user.leaders

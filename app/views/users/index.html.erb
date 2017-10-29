@@ -1,0 +1,6 @@
+All tweets from all users
+
+<% @tweets.each do |tweet| %>
+  <p><%= link_to tweet.user.username, user_path(tweet.user), method: :get %></p>
+  <p>Body :<%= tweet.body %></p>
+<% end %>

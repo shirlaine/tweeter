@@ -5,12 +5,17 @@ Rails.application.routes.draw do
 
   get '/index', to: 'pages#index'
   resources :tags, only: [:new, :create]
+  resources :relationships, only: [:create, :destroy]
+
   resources :tweets do
     resources :tags, only: [:new, :create, :edit, :update]
   end
+
   resources :users do
     get 'leaders', on: :member
     get 'followers', on: :member
   end
+
+
 
 end

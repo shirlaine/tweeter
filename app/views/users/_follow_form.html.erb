@@ -1,0 +1,14 @@
+<% if @user != current_user %>
+<%= @user.inspect %>
+<%= current_user.inspect %>
+  <div id="follow-form">
+    <% if current_user.following?(@user) %>
+      <%= render 'unfollow' %>
+    <% else %>
+      <%= render 'follow' %>
+    <% end %>
+  </div>
+<% end %>
+
+
+
