@@ -8,6 +8,7 @@
   <%= link_to 'My tweet feed', tweets_path, method: :get %>
   <%= link_to 'Following', leaders_user_path(@user), method: :get %>
   <%= link_to 'Followers', followers_user_path(@user), method: :get %>
+  <%= link_to 'Live tweet feed', users_path, method: :get %>
   <hr>
   <p>
   <% @tweets.each do |tweet| %>

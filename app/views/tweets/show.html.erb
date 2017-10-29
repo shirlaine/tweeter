@@ -1,6 +1,7 @@
-<center>
+  <center>
 <h1>@<%= @tweet.user.username %>'s Tweet#show</h1>
   <br>
+  <%= link_to @tweet.user.username, method: :get %>
   <strong><p>@<%= @tweet.user.username %> tweeted:</p></strong>
   <h4>" <%= @tweet.body %> "</h4>
   <br>
