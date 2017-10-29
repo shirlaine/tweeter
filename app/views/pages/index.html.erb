@@ -26,5 +26,11 @@
     <br>
     <hr>
   <% end %>
+  <% @leaders.each do |leader| %>
+    <p>@<%= link_to leader.username, user_path(leader) %> tweeted:</p>
+    <% leader.tweets.each do |tweet| %>
+      <p><%= tweet.body %></p>
+    <% end %>
+  <% end %>
   </p>
 </center>
