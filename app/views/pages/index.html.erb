@@ -1,10 +1,12 @@
 <div class="container-fluid">
-
   <div class="row d-flex justify-content-center">
+
     <div class="col-md-2 box">
       <div class="contain">
+
         <div class="card">
           <img class="card-img-top" src="..." alt="Profile">
+
           <div class="card-block">
             <h5 class="card-title"><%= @user.fullname %></h5>
             <p class="card-text">@<%= @user.username %></p>
@@ -24,6 +26,7 @@
           </div>
 
         </div>
+
         <div class="card hash-tags">
           <div class="card-block">
             <h5>Hash Tags</h5>
@@ -38,11 +41,11 @@
             </h6>
           </div>
         </div>
+
       </div>
-
     </div>
-    <div class="col-md-5 box">
 
+    <div class="col-md-5 box">
       <div class="panel panel-default tweets">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -82,26 +85,16 @@
           </li>
         </ul>
       </div>
-
-
     </div>
+
     <div class="col-md-2 box text-center">
-
-            <div class="buttons">
-              <%= link_to 'New Tweet', new_tweet_path, method: :get, class: "btn btn-info" %>
-            </div>
-            <div class="buttons">
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-info" %>
-            </div>
+      <div class="buttons">
+        <%= link_to 'New Tweet', new_tweet_path, method: :get, class: "btn btn-info" %>
+      </div>
+      <div class="buttons">
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-info" %>
+      </div>
     </div>
-
-
 
   </div>
 </div>
-
-
-<center>
-  <span>-</span>
-  <span>-</span>
-</center>
