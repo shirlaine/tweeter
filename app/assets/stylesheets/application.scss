@@ -15,3 +15,57 @@
  */
  @import "bootstrap";
 
+body {
+  background-image: url(/assets/tweet-background.jpg);
+}
+
+.index{
+  margin-left: 180px;
+  margin-right: 180px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.tweets {
+  margin: 20px;
+}
+
+.card-contain {
+  height:800px;
+  width: 200px;
+}
+
+.card {
+  margin: 10px;
+  padding: 5px;
+}
+
+ .box {
+    background-color: #496d96;
+    margin: 5px;
+    width: 200px;
+    padding: 0
+ }
+
+ .align-list {
+    flex-direction: row;
+    padding: 0px;
+ }
+
+ .hash-tags {
+    margin-top: 20px;
+ }
+
+ .list-item {
+    margin: 5px;
+    padding: 0
+   }
+
+  .new-tweet {
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+   }
+
