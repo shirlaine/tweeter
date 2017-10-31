@@ -1,12 +1,7 @@
-
-<h1 class="", style="color: white;">TEST SHOW RENDER</h1>
-
 <div class="container-fluid">
   <div class="row d-flex justify-content-center">
-
     <div class="col-md-2 box">
       <div class="contain">
-
         <div class="card">
           <img class="card-img-top" src="..." alt="Profile">
 
@@ -27,47 +22,37 @@
                <%=@user.followers.count %></li>
             </ul>
           </div>
-
         </div>
 
         <div class="card hash-tags">
           <div class="card-block">
             <p><%= render 'follow_form' if user_signed_in? %></p>
-            <p><%= link_to "Send Message", index_path, method: :get, class: "btn btn-secondary" %></p>
-            <p><%= link_to "Back to Home", index_path, method: :get, class: "btn btn-secondary" %></p>
+            <p><%= link_to "Send Message", index_path, method: :get, class: "btn btn-info" %></p>
+            <p><%= link_to "Back to Home", index_path, method: :get, class: "btn btn-info" %></p>
             <hr>
-            <h6>
-
-            </h6>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="col-md-7 box">
       <div class="panel panel-default tweets">
-        <!-- Default panel contents -->
-        <div class="panel-heading">
-        </div>
-        <div class="panel-body">
-          <div class="well well-lg new-tweet">What's Happening?
-          </div>
-          <p>...</p>
-        </div>
-
-        <!-- List group -->
         <ul class="list-group">
           <li class="list-group-item">
-            <% @user.tweets.each do |tweet| %>
-            <p><%= tweet.body %></p>
-            <hr>
+            <% @usertweets.each do |tweet| %>
+              <p><strong>
+                @<%= tweet.user.username %> tweeted:
+              </strong></p>
+              <%= tweet.body %>
+              <% tweet.tags.each do |tag| %>
+                #<%= link_to tag.name %>
+              <% end %>
+              <hr>
             <% end %>
           </li>
         </ul>
       </div>
     </div>
-
   </div>
 </div>
 
