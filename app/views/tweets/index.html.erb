@@ -1,18 +1,77 @@
-<center>
-<h1><%= current_user.fullname %>'s  Tweet#index</h1>
-<br>
-<hr>
-<% @tweets.each do |tweet| %>
-  <p><strong>@<%= tweet.user.username %> tweeted:</strong></p>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
 
- <h5><%= link_to tweet.body, tweet_path(tweet), method: :get %></h5>
- <br>
- <hr>
-<% end %>
-<br>
-<%= link_to 'New tweet', new_tweet_path, method: :get %>
-<br>
-<%= link_to 'Back to Home', index_path, method: :get %>
-<br>
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' } %>
-</center>
+    <div class="col-md-2 box">
+      <div class="contain">
+
+        <div class="card">
+          <img class="card-img-top" src="..." alt="Profile">
+
+          <div class="card-block">
+            <h5 class="card-title"><%= @user.fullname %></h5>
+            <p class="card-text">@<%= @user.username %></p>
+          </div>
+
+          <div class="card-block">
+            <ul class= "d-flex w-100 justify-content-between align-list">
+              <li class="list-group-item list-item">
+                <%= link_to 'Tweets', tweets_path, method: :get %>
+                <%= @user.tweets.count %></li>
+              <li class="list-group-item list-item"><%= link_to 'Following', leaders_user_path(@user), method: :get %>
+               <%=@user.leaders.count %></li>
+              <li class="list-group-item list-item">
+                <%= link_to 'Followers', followers_user_path(@user), method: :get %>
+               <%=@user.followers.count %></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="card hash-tags">
+          <div class="card-block">
+
+            <p><%= link_to 'New tweet', new_tweet_path, method: :get, class: "btn btn-info" %></p>
+            <br>
+            <p><%= link_to 'Back to Home', index_path, method: :get, class: "btn btn-info" %></p>
+            <br>
+            <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-info", data: { confirm: 'Are you sure you want to sign out?' } %></p>
+            <hr>
+            <h6>
+
+            </h6>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-7 box">
+      <div class="panel panel-default tweets">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body">
+          <div class="well well-lg new-tweet">What's Happening?
+          </div>
+          <p>...</p>
+        </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+          <li class="list-group-item">
+
+            <p><% @user.tweets.each do |tweet| %>
+              <%=tweet.user.fullname %>  @<%= tweet.user.username %></p>
+            <p><%= link_to tweet.body, tweet_path(tweet), method: :get %></p>
+              <% tweet.tags.each do |tag| %>
+                #<%= tag.name %>
+              <% end %>
+            <hr>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -19,9 +19,19 @@ body {
   background-image: url(/assets/tweet-background.jpg);
 }
 
-.index{
-  margin-left: 180px;
-  margin-right: 180px;
+.nav-link {
+  padding-left: 470px;
+  color: white;
+  justify-content: center;
+}
+
+.twitter-logo {
+  height: 30px;
+  weight: 30px;
+}
+
+.navbar {
+  background-color: #496d96;
 }
 
 .buttons {
@@ -46,7 +56,33 @@ body {
     background-color: #496d96;
     margin: 5px;
     width: 200px;
-    padding: 0
+    padding: 0;
+    align-items: center;
+ }
+
+  .new-tweet {
+    background-color: white;
+    margin: 50px;
+    margin-left: 50px;
+    padding: 20px;
+   }
+
+ .box-show-1 {
+    background-color: white;
+    align-items: center;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 70px;
+ }
+
+ .box-show-2 {
+    background-color: white;
+    align-items: center;
+    border-radius: 25px;
+    padding: 20px;
+    width: 80%;
+    margin-left: 80px;
  }
 
  .align-list {
@@ -63,9 +99,4 @@ body {
     padding: 0
    }
 
-  .new-tweet {
-    background-color: white;
-    margin: 5px;
-    padding: 5px;
-   }
 

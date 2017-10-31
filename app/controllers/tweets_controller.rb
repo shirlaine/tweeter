@@ -4,6 +4,7 @@ class TweetsController < BaseController
 
   def index
     @tweets = current_user.tweets
+    @user = current_user
   end
 
   def show
