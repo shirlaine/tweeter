@@ -16,6 +16,7 @@ class UsersController < BaseController
 
   def show
     @user = User.find(params[:id])
+    @usertweets = @user.tweets.order(id: :desc)
     @following = @user.leaders
     @followers = @user.followers
   end

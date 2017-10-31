@@ -3,7 +3,10 @@ class TweetsController < BaseController
   before_action :prepare_tweet, only: [:edit, :update, :destroy]
 
   def index
-    @tweets = current_user.tweets
+    @tweets = current_user.tweets.order(id: :desc)
+    @user = current_user
+    @tweet = Tweet.new
+    @tag = @tweet.tags.new
   end
 
   def show
@@ -20,7 +23,7 @@ class TweetsController < BaseController
     @tweet = current_user.tweets.new(tweet_params)
     if @tweet.save
       flash[:notice] = 'Your tweet was created!'
-      redirect_to tweet_path(@tweet)
+      redirect_to tweets_path
     else
       flash[:alert] = 'Your tweet was not saved!'
       render :new

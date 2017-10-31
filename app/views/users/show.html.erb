@@ -1,11 +1,59 @@
-<center>
-  <h1><%= @user.username %>#show profile</h1>
-    <p>Following<%= @following.count %>
-     Followers<%= @followers.count %></p>
-    <% @user.tweets.each do |tweet| %>
-    <p><%= tweet.body %></p>
-    <% end %>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-2 box">
+      <div class="contain">
+        <div class="card">
+          <img class="card-img-top" src="..." alt="Profile">
 
-  <%= link_to "Back to home", index_path, method: :get %>
-  <%= render 'follow_form' if user_signed_in? %>
-</center>
+          <div class="card-block">
+            <h5 class="card-title"><%= @user.fullname %></h5>
+            <p class="card-text">@<%= @user.username %></p>
+          </div>
+
+          <div class="card-block">
+            <ul class= "d-flex w-100 justify-content-between align-list">
+              <li class="list-group-item list-item">
+                <%= link_to 'Tweets', tweets_path, method: :get %>
+                <%= @user.tweets.count %></li>
+              <li class="list-group-item list-item"><%= link_to 'Following', leaders_user_path(@user), method: :get %>
+               <%=@user.leaders.count %></li>
+              <li class="list-group-item list-item">
+                <%= link_to 'Followers', followers_user_path(@user), method: :get %>
+               <%=@user.followers.count %></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card hash-tags">
+          <div class="card-block">
+            <p><%= render 'follow_form' if user_signed_in? %></p>
+            <p><%= link_to "Send Message", index_path, method: :get, class: "btn btn-info" %></p>
+            <p><%= link_to "Back to Home", index_path, method: :get, class: "btn btn-info" %></p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7 box">
+      <div class="panel panel-default tweets">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <% @usertweets.each do |tweet| %>
+              <p><strong>
+                @<%= tweet.user.username %> tweeted:
+              </strong></p>
+              <%= tweet.body %>
+              <% tweet.tags.each do |tag| %>
+                #<%= link_to tag.name %>
+              <% end %>
+              <hr>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
