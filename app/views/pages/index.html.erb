@@ -47,7 +47,7 @@
         <!-- List group -->
         <ul class="list-group">
           <li class="list-group-item">
-            <% @tweets.each do |tweet| %>
+            <% @feed.each do |tweet| %>
               <h6>
                 <%= tweet.user.fullname %> @<%= link_to tweet.user.username, tweet_path(tweet), method: :get %>.<%=tweet.created_at.strftime(" %d %B %Y") %>
                 <strong> tweeted:</strong>
@@ -60,17 +60,6 @@
               <% end %>
               <br>
               <hr>
-            <% end %>
-          </li>
-          <li class="list-group-item">
-            <% @leaders.each do |leader| %>
-              <p>
-                @<%= link_to leader.username, user_path(leader) %> tweeted:
-              </p>
-              <% leader.tweets.each do |tweet| %>
-                <p><%= tweet.body %></p>
-                <hr>
-              <% end %>
             <% end %>
           </li>
         </ul>
