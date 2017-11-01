@@ -41,6 +41,10 @@ gem 'rubocop', require: false
 gem 'devise'
 # Faker Gem
 gem 'faker'
+#Carrier Wave
+gem 'carrierwave', '~> 1.0'
+# minimagik
+gem 'mini_magick', '~> 4.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   has_many :tweets, dependent: :destroy
 
+  #avatar
+  # mount_uploader :avatar, AvatarUploader
+
+
   # creating assocation name.leaders
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
   has_many :leaders, through: :relationships
@@ -17,6 +21,7 @@ class User < ApplicationRecord
   # creating association name.followers
   has_many :reverse_relationships, foreign_key: :leader_id, class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :reverse_relationships
+
 
   def following?(leader)
     leaders.include?(leader)
