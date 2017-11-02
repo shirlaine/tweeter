@@ -1,9 +1,17 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= @user.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+
+    <%= f.input :username, required: true, autofocus: true, error: 'Username is mandatory, please specify one' %>
+
+    <%= f.input :fullname, required: true, autofocus: true, error: 'Fullname is mandatory, please specify one' %>
+
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

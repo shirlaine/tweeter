@@ -21,4 +21,12 @@ class UsersController < BaseController
     @followers = @user.followers
   end
 
+  def show_profile
+    @user = User.find(params[:id])
+  end
+
 end
+
+
+
+

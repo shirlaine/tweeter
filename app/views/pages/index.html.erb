@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <div class="row d-flex justify-content-center">
     <div class="col-md-2 box">
@@ -7,6 +8,7 @@
           <div class="card-block">
             <h5 class="card-title"><%= @user.fullname %></h5>
             <p class="card-text">@<%= @user.username %></p>
+            <p><%= link_to 'Edit Profile', edit_user_registration_path(@user), method: :get, class: 'btn btn-info btn-sm' %></p>
           </div>
 
           <div class="card-block">
@@ -26,6 +28,9 @@
         <div class="card hash-tags">
           <div class="card-block">
             <h5>Hash Tags</h5>
+            <%= @user.inspect %>
+            <%= @user.avatar?.inspect %>
+            <%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
             <hr>
               <%= link_to 'Live tweet feed!', users_path, method: :get %>
             <h6>
