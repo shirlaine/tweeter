@@ -19,8 +19,18 @@ body {
   background-image: url(/assets/tweet-background.jpg);
 }
 
+.tweet-followers {
+
+}
+
+.tweet-cont {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-bottom: 1px solid gray;
+}
+
 .nav-link {
-  padding-left: 470px;
+  padding-left: 350px;
   color: white;
   justify-content: center;
 }
@@ -52,8 +62,44 @@ body {
   padding: 5px;
 }
 
-.img {
+.profile-img {
+  margin-top: 10px;
+}
+
+.thumb-container {
+
+}
+
+.thumb-img {
+  padding: 0px;
+  width: 140px;
+  height: 140px;
+  line-height: 50px;
   border-radius: 50%;
+  text-align: center;
+}
+
+.tweet-name {
+  padding-left: 50px;
+}
+
+.show-tweet {
+  background-color: white;
+    align-items: center;
+    border-radius: 25px;
+    padding: 20px;
+    width: 80%;
+    margin-left: 80px;
+}
+
+.show-tweet-cont {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.control-label{
+     color: white !important; // some color
+     font-size: 30px;
 }
 
  .box {
@@ -64,6 +110,9 @@ body {
     align-items: center;
  }
 
+.lower-block {
+  margin: 30px;
+}
   .new-tweet {
     background-color: white;
     margin: 50px;
@@ -89,9 +138,16 @@ body {
     margin-left: 80px;
  }
 
+ .profile-name {
+    margin: 20px;
+    text-align: center;
+ }
+
  .align-list {
-    flex-direction: row;
     padding: 0px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    justify-content: center;
  }
 
  .hash-tags {
@@ -100,7 +156,12 @@ body {
 
  .list-item {
     margin: 5px;
-    padding: 0
+    padding: 0;
+    font-size: 15px;
    }
+
+  .list-group-item {
+    border: 0;
+  }
 
 

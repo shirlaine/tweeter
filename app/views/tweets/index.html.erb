@@ -1,38 +1,18 @@
 <div class="container-fluid">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-2 box">
-      <div class="contain">
-        <div class="card">
-          <img class="card-img-top" src="..." alt="Profile">
-          <div class="card-block">
-            <h5 class="card-title"><%= @user.fullname %></h5>
-            <p class="card-text">@<%= @user.username %></p>
-          </div>
 
-          <div class="card-block">
-            <ul class= "d-flex w-100 justify-content-between align-list">
-              <li class="list-group-item list-item">
-                <%= link_to 'Tweets', tweets_path, method: :get %>
-                <%= @user.tweets.count %>
-              </li>
-              <li class="list-group-item list-item"><%= link_to 'Following', leaders_user_path(@user), method: :get %>
-               <%=@user.leaders.count %>
-             </li>
-              <li class="list-group-item list-item">
-                <%= link_to 'Followers', followers_user_path(@user), method: :get %>
-               <%=@user.followers.count %>
-             </li>
-            </ul>
-          </div>
-        </div>
+    <div class="col-md-3 box">
+      <div class="contain">
+
+        <%= render partial: 'pages/profile' %>
 
         <div class="card hash-tags">
           <div class="card-block">
-            <br>
-            <p><%= link_to 'Back to Home', index_path, method: :get, class: "btn btn-info" %></p>
-            <br>
-            <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-info", data: { confirm: 'Are you sure you want to sign out?' } %></p>
-            <hr>
+            <div class="lower-block">
+              <p><%= link_to 'Back to Home', index_path, method: :get, class: "btn btn-info" %></p>
+              <br>
+              <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-info", data: { confirm: 'Are you sure you want to sign out?' } %></p>
+            </div>
           </div>
         </div>
       </div>
@@ -45,21 +25,28 @@
         <!-- List group -->
         <ul class="list-group">
           <li class="list-group-item">
+            <div class= "thumb-container">
             <p>
               <% @tweets.each do |tweet| %>
-              <%=tweet.user.fullname %>  @<%= tweet.user.username %>
-            </p>
-            <p>
-              <%= link_to tweet.body, tweet_path(tweet), method: :get %>
-            </p>
-              <% tweet.tags.each do |tag| %>
-                #<%= tag.name %>
-              <% end %>
-            <hr>
+              <div class='tweet-cont show-tweet-cont'>
+                <%= link_to(image_tag(tweet.user.avatar.thumb.url, alt: 'image', class: 'thumb-img'), tweet.user.avatar.url, target: '_blank') if tweet.user.avatar? %>
+                <span class="tweet-name"><%=tweet.user.fullname %>  @<%= tweet.user.username %>.<%=tweet.created_at.strftime(" %d %B %Y") %></span>
+              </p>
+
+               <h5 class="text-center"> <%= link_to tweet.body, tweet_path(tweet), method: :get %></h5>
+              </p>
+                <% tweet.tags.each do |tag| %>
+                <p class="text-center">
+                  #<%= tag.name %>
+                </p>
+                <% end %>
+              </div>
             <% end %>
+          </div>
           </li>
         </ul>
       </div>
     </div>
+
   </div>
 </div>

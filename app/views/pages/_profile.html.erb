@@ -1,0 +1,48 @@
+<div class="card">
+   <div class="card-block">
+     <div class="profile-image justify-content-space-between text-center">
+       <div class="profile-img">
+         <%= link_to(image_tag(@user.avatar.profile.url, alt: 'image', class: 'img'), @user.avatar.url, target: '_blank') if @user.avatar? %>
+       </div>
+     </div>
+    </div>
+
+  <div class="card-block">
+    <div class="profile-name">
+      <h5 class="card-title">
+        <%= @user.fullname %>
+      </h5>
+      <p class="card-text">@<%= @user.username %>
+      </p>
+      <p>
+        <%= link_to 'Edit Profile', edit_user_registration_path(@user), method: :get, class: 'btn btn-info btn-sm' if @user==current_user %>
+      <hr>
+      </p>
+    </div>
+  </div>
+
+  <div class="card-block">
+    <% if @user == current_user %>
+    <ul class= "d-flex w-100 align-list">
+        <li class="list-group-item list-item">
+          <%= link_to 'Tweets', tweets_path, method: :get %>
+         <p class="text-center"> <%= current_user.tweets.count %></p></li>
+        <li class="list-group-item list-item"><%= link_to 'Following', leaders_user_path(@user), method: :get %>
+         <p class="text-center"><%=current_user.leaders.count %></p></li>
+        <li class="list-group-item list-item">
+          <%= link_to 'Followers', followers_user_path(@user), method: :get %>
+         <p class="text-center"><%=current_user.followers.count %></p></li>
+    <% else %>
+    <ul class= "d-flex w-100 align-list">
+        <li class="list-group-item list-item">
+          Tweets
+         <p class="text-center"> <%= @user.tweets.count %></p></li>
+        <li class="list-group-item list-item">Following
+         <p class="text-center"><%=@user.leaders.count %></p></li>
+        <li class="list-group-item list-item">
+          Followers
+         <p class="text-center"><%=@user.followers.count %></p></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

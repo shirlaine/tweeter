@@ -1,9 +1,11 @@
 <%= simple_form_for @tweet, url: tweets_path, method: :post do |f| %>
-  <%= f.input :body, label: 'Say something!' %>
+  <%= f.input :body, label: "What's happening now?", placeholder: 'Watched Jar Jar Binks today :)' %>
     <%= f.simple_fields_for :tags, url: tags_path, method: :post do |t| %>
-      <%= t.input :name, label: 'Tag it!', placeholder: '#' %>
+      <%= t.input :name, label: 'Tag it:', placeholder: 'starwars' %>
       <% end %>
-    <%= f.button :submit, 'Tweet it', class: 'btn btn-info right' %>
+    <div class="text-right">
+      <%= f.button :submit, 'Tweet it', class: 'btn btn-info right' %>
+    </div>
   <% end %>
  <br>
 
