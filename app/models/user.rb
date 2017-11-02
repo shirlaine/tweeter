@@ -11,8 +11,7 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
 
   #avatar
-  # mount_uploader :avatar, AvatarUploader
-
+  mount_uploader :avatar, AvatarUploader
 
   # creating assocation name.leaders
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
