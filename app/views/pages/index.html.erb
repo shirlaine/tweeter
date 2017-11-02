@@ -4,7 +4,7 @@
     <div class="col-md-2 box">
       <div class="contain">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Profile">
+         <%= link_to(image_tag(@user.avatar.thumb.url, alt: 'image', class: 'img'), @user.avatar.url, target: '_blank') if @user.avatar? %>
           <div class="card-block">
             <h5 class="card-title"><%= @user.fullname %></h5>
             <p class="card-text">@<%= @user.username %></p>
@@ -28,9 +28,6 @@
         <div class="card hash-tags">
           <div class="card-block">
             <h5>Hash Tags</h5>
-            <%= @user.inspect %>
-            <%= @user.avatar?.inspect %>
-            <%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
             <hr>
               <%= link_to 'Live tweet feed!', users_path, method: :get %>
             <h6>
@@ -54,6 +51,7 @@
           <li class="list-group-item">
             <% @feed.each do |tweet| %>
               <h6>
+                <%= link_to(image_tag(tweet.user.avatar.thumb.url, alt: 'image', class: 'img'), tweet.user.avatar.url, target: '_blank') if tweet.user.avatar? %>
                 <%= tweet.user.fullname %> @<%= link_to tweet.user.username, tweet_path(tweet), method: :get %>.<%=tweet.created_at.strftime(" %d %B %Y") %>
                 <strong> tweeted:</strong>
               </h6>
