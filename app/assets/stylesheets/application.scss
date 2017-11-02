@@ -72,15 +72,15 @@ body {
 
 .thumb-img {
   padding: 0px;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   line-height: 50px;
   border-radius: 50%;
   text-align: center;
 }
 
 .tweet-name {
-  padding-left: 50px;
+  padding-left: 30px;
 }
 
 .show-tweet {
@@ -88,7 +88,7 @@ body {
     align-items: center;
     border-radius: 25px;
     padding: 20px;
-    width: 80%;
+    width: 50%;
     margin-left: 80px;
 }
 
@@ -162,6 +162,22 @@ body {
 
   .list-group-item {
     border: 0;
+  }
+
+  .all-tweets {
+    background-color: #496d96;
+  }
+
+  .white-box {
+    background-color: white;
+    margin: 20px;
+    border-radius: 25px;
+    padding: 20px;
+    width: 80%;
+    height: 90%;
+    overflow-y: scroll;
+    margin: auto;
+    margin-top: 50px;
   }
 
 

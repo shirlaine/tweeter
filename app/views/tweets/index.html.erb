@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="row d-flex justify-content-center">
-
     <div class="col-md-3 box">
       <div class="contain">
 
-        <%= render partial: 'pages/profile' %>
+       <%= render "pages/profile" %>
 
         <div class="card hash-tags">
           <div class="card-block">
             <div class="lower-block">
+
               <p><%= link_to 'Back to Home', index_path, method: :get, class: "btn btn-info" %></p>
               <br>
               <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-info", data: { confirm: 'Are you sure you want to sign out?' } %></p>
@@ -25,28 +25,23 @@
         <!-- List group -->
         <ul class="list-group">
           <li class="list-group-item">
-            <div class= "thumb-container">
             <p>
               <% @tweets.each do |tweet| %>
-              <div class='tweet-cont show-tweet-cont'>
+              <div class='tweet-cont'>
                 <%= link_to(image_tag(tweet.user.avatar.thumb.url, alt: 'image', class: 'thumb-img'), tweet.user.avatar.url, target: '_blank') if tweet.user.avatar? %>
-                <span class="tweet-name"><%=tweet.user.fullname %>  @<%= tweet.user.username %>.<%=tweet.created_at.strftime(" %d %B %Y") %></span>
+                <span class="tweet-name"><%=tweet.user.fullname %>  @<%= tweet.user.username %></span>
               </p>
-
-               <h5 class="text-center"> <%= link_to tweet.body, tweet_path(tweet), method: :get %></h5>
+              <p>
+                <p class="text-center strong><%= link_to tweet.body, tweet_path(tweet), method: :get %>
               </p>
                 <% tweet.tags.each do |tag| %>
-                <p class="text-center">
-                  #<%= tag.name %>
-                </p>
+                  <p class="text-center">#<%= tag.name %></p>
                 <% end %>
-              </div>
+            </div>
             <% end %>
-          </div>
           </li>
         </ul>
       </div>
     </div>
-
   </div>
 </div>
