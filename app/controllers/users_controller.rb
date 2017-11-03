@@ -26,7 +26,3 @@ class UsersController < BaseController
   end
 
 end
-
-
-
-

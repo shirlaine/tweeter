@@ -7,15 +7,14 @@ class TagsController < BaseController
 
   def create
     @tweet = Tweet.find(params[:tweet_id])
-    @tag = @tweet.tags.create(tag_params)
-
-    # @tag = Tag.find_or_initialize_by(tag_params)
-    if @tag.save
-      redirect_to tweet_path(@tweet)
-    # can't use .save here
-    else
-      render :new
+    @tweet.transaction do
+      @tag = Tag.find_or_create_by!(tag_params)
+      @tag.tweet_tags.create!(tweet: @tweet)
     end
+    redirect_to tweet_path(@tweet)
+    # can't use .save here
+  rescue
+    render :new
   end
 
   def edit
