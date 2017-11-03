@@ -6,14 +6,18 @@
     <div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"><img alt="Logo" src="/assets/twitter.png" class="twitter-logo"/></a>
         <li class="nav-item">
           <a class="nav-link" href="#"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><h6>Live Tweet Feed</h6></a>
+           <%= link_to 'Live tweet feed!', users_path, method: :get, class: 'nav-link btn btn-danger btn-sm' %>
         </li>
       </ul>
+    </div>
+    <div class= "mx-auto">
+      <%= link_to index_path do %>
+        <%= image_tag "/assets/twitter.png", class:"twitter-logo" %>
+      <% end %>
     </div>
   </div>
   <form class="form-inline">
