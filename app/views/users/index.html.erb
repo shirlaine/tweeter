@@ -1,5 +1,4 @@
-
-<div class="container">
+<div class="container margin-50">
   <div class="row justify-content-center">
     <div class="col-md-8 all-tweets center">
 
@@ -7,9 +6,12 @@
         <h1>Live tweets from all users</h1>
         <% @tweets.each do |tweet| %>
         <div class="tweet-cont">
-
-          <p><%= tweet.user.fullname %> @<%= link_to tweet.user.username, user_path(tweet.user), method: :get %>.<%=tweet.created_at.strftime(" %d %B %Y") %></p>
+          <p><%= link_to(image_tag(tweet.user.avatar.thumb.url, alt: 'image', class: 'thumb-img'), tweet.user.avatar.url, target: '_blank') if tweet.user.avatar? %>
+          <span class="padding-10"><%= tweet.user.fullname %> @<%= link_to tweet.user.username, user_path(tweet.user), method: :get %>.<%=tweet.created_at.strftime(" %d %B %Y") %></span></p>
           <h5 class="text-center strong"><%= tweet.body %></h5>
+            <% tweet.tags.each do |tag| %>
+              <p class="text-center">#<%= tag.name %></p>
+            <% end %>
         </div>
         <% end %>
       </div>

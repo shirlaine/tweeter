@@ -16,8 +16,13 @@
       <%= render 'layouts/signed_out_nav' %>
     <% end %>
 
-    <p class="notice alert-success"><%= notice %></p>
-    <p class="alert alert-error"><%= alert %></p>
+    <% if notice.present? %>
+      <p class="notice alert-success white"><%= notice %></p>
+    <% elsif alert.present? %>
+      <p class="alert alert-error white"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
+
   </body>
 </html>

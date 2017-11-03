@@ -19,18 +19,12 @@ body {
   background-image: url(/assets/tweet-background.jpg);
 }
 
-.tweet-followers {
-
-}
-
 .tweet-cont {
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-top: 20px;
   border-bottom: 1px solid gray;
 }
 
 .nav-link {
-  padding-left: 350px;
   color: white;
   justify-content: center;
 }
@@ -42,6 +36,10 @@ body {
 
 .navbar {
   background-color: #496d96;
+}
+
+.margin-50 {
+  margin-top: 50px;
 }
 
 .buttons {
@@ -66,10 +64,6 @@ body {
   margin-top: 10px;
 }
 
-.thumb-container {
-
-}
-
 .thumb-img {
   padding: 0px;
   width: 100px;
@@ -77,6 +71,11 @@ body {
   line-height: 50px;
   border-radius: 50%;
   text-align: center;
+}
+
+.white {
+  background-color: white;
+  color: gray;
 }
 
 .tweet-name {
@@ -99,7 +98,7 @@ body {
 
 .control-label{
      color: white !important; // some color
-     font-size: 30px;
+     font-size: 22px;
 }
 
  .box {
@@ -154,6 +153,10 @@ body {
     margin-top: 20px;
  }
 
+.padding-10{
+  padding-left: 50px;
+}
+
  .list-item {
     margin: 5px;
     padding: 0;
@@ -162,6 +165,7 @@ body {
 
   .list-group-item {
     border: 0;
+    padding: auto;
   }
 
   .all-tweets {

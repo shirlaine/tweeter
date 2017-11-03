@@ -2,7 +2,7 @@
    <div class="card-block">
      <div class="profile-image justify-content-space-between text-center">
        <div class="profile-img">
-         <%= link_to(image_tag(@user.avatar.profile.url, alt: 'image', class: 'img'), @user.avatar.url, target: '_blank') if @user.avatar? %>
+         <%= link_to(image_tag(@user.avatar.profile.url, alt: 'image', class: 'img img-fluid'), @user.avatar.url, target: '_blank') if @user.avatar? %>
        </div>
      </div>
     </div>

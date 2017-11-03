@@ -1,17 +1,25 @@
-<center>
-  <h1>List of Followings for @<%= current_user.username %></h1>
+<div class="container margin-50">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
 
-    <strong>Following: </strong>
-      <% if @following.nil? %>
-        <p>Oops no followers yet!</p>
-      <% else %>
-        <p><%= @following.count %></p>
-      <% end %>
-    <strong>List of Following: </strong>
-    <% @following.each do |following| %>
-    <p><%= link_to "@#{following.username}", user_path(following.id), method: :get %></p>
-    </p>
-    <% end %>
+      <div class="white-box">
+        <h1>List of Followings for @<%= current_user.username %></h1>
 
-  <%= link_to 'Back to Home', index_path, method: :get %>
-</center>
+        <strong>Following: </strong>
+          <% if @following.nil? %>
+            <p>Oops no followers yet!</p>
+          <% else %>
+            <p><%= @following.count %></p>
+          <% end %>
+        <strong>List of Following: </strong>
+        <% @following.each do |following| %>
+        <p><%= link_to "@#{following.username}", user_path(following.id), method: :get %></p>
+        </p>
+        <% end %>
+
+      <%= link_to 'Back to Home', index_path, method: :get %>
+      </div>
+
+    </div>
+  </div>
+</div>
