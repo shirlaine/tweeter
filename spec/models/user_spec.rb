@@ -18,4 +18,10 @@ RSpec.describe User, type: :model do
   it { expect(subject).to validate_length_of(:fullname).is_at_most(15) }
   it { expect(subject).to validate_length_of(:password).is_at_least(6) }
 
+  it { expect(subject).to have_many(:tweets) }
+  it { expect(subject).to have_many(:relationships) }
+  it { expect(subject).to have_many(:leaders) }
+  it { expect(subject).to have_many(:reverse_relationships) }
+  it { expect(subject).to have_many(:followers) }
+
 end
