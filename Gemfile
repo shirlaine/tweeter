@@ -41,7 +41,7 @@ gem 'rubocop', require: false
 gem 'devise'
 # Faker Gem
 gem 'faker'
-#Carrier Wave
+# Carrier Wave
 gem 'carrierwave', '~> 1.0'
 # minimagik
 gem 'mini_magick', '~> 4.3'
