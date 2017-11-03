@@ -1,4 +1,7 @@
-<h2>Edit <%= @user.to_s.humanize %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto margin-50">
+      <h2>Edit Profile for  @<%= current_user.username %></h2>
 
 <%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -9,7 +12,7 @@
 
     <%= f.input :fullname, required: true, autofocus: true, error: 'Fullname is mandatory, please specify one' %>
 
-    <%= f.label :avatar %>
+    <%= f.label :upload_profile_picture %>
     <%= f.file_field :avatar %>
 
     <label>
@@ -38,3 +41,7 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+    </div>
+  </div>
+</div>

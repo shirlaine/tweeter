@@ -15,8 +15,18 @@
  */
  @import "bootstrap";
 
+
+
 body {
   background-image: url(/assets/tweet-background.jpg);
+}
+
+body.devise-registrations.edit {
+  color: white;
+}
+
+body.devise-sessions.new {
+  color: white;
 }
 
 .tweet-cont {
