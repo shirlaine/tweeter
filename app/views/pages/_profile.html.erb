@@ -16,6 +16,7 @@
       </p>
       <p>
         <%= link_to 'Edit Profile', edit_user_registration_path(@user), method: :get, class: 'btn btn-info btn-sm' if @user==current_user %>
+        <p><%= render partial: 'users/follow_form' if user_signed_in? %></p>
       <hr>
       </p>
     </div>

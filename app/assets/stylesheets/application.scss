@@ -15,12 +15,22 @@
  */
  @import "bootstrap";
 
+
+
 body {
   background-image: url(/assets/tweet-background.jpg);
 }
 
+body.devise-registrations.edit {
+  color: white;
+}
+
+body.devise-sessions.new {
+  color: white;
+}
+
 .tweet-cont {
-  padding-top: 20px;
+  padding-top: 15px;
   border-bottom: 1px solid gray;
 }
 
@@ -39,14 +49,14 @@ body {
 }
 
 .margin-50 {
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .buttons {
   margin-top: 20px;
 }
 
-.tweets {
+.tweets-panel {
   margin: 20px;
 }
 
