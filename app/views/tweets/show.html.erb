@@ -1,39 +1,42 @@
-<div class="container-fluid">
+<div class="container-fluid margin-50">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-2 box">
+
+    <div class="col-md-3 box">
       <div class="contain">
-        <div class="card">
-          <img class="card-img-top" src="..." alt="Profile">
-          <div class="card-block">
-            <h5 class="card-title"><%= @user.fullname %></h5>
-            <p class="card-text">@<%= @user.username %></p>
-          </div>
-        </div>
+
+         <%= render partial: 'pages/profile' %>
 
         <div class="card hash-tags">
           <div class="card-block">
-            <% if @tweet.user.id == current_user.id %>
-              <p>
-                <%= link_to 'Add tag', new_tweet_tag_path(@tweet), method: :get %>
-              </p>
-              <p>
-                <%= link_to 'Edit Tweet', edit_tweet_path(@tweet, @tag), method: :get %>
-              </p>
-              <p>
-                <%= link_to 'Delete Tweet', tweet_path(@tweet), method: :delete, data: { confirm: 'Are you sure you want to delete this tweet?'} %>
-              </p>
-              <p>
-                <%= link_to 'Back to my Tweet Feed', tweets_path, method: :get %>
-              </p>
-              <p>
-                <%= link_to 'Back to Home', index_path, method: :get %>
-              </p>
-            <% else %>
-               <% @tweet.tags.each do |tag| %>
-                <p>#<%= tag.name %></p>
-            <% end %>
-            <p><%= link_to 'Back to Home', index_path, method: :get %></p>
-            <% end %>
+            <div class="lower-block">
+              <% if @tweet.user.id == current_user.id %>
+                <p>
+                  <%= link_to 'Add tag', new_tweet_tag_path(@tweet), method: :get %>
+                </p>
+                <p>
+                  <%= link_to 'Edit Tweet', edit_tweet_path(@tweet, @tag), method: :get %>
+                </p>
+                <p>
+                  <%= link_to 'Delete Tweet', tweet_path(@tweet), method: :delete, data: { confirm: 'Are you sure you want to delete this tweet?'} %>
+                </p>
+                <p>
+                  <%= link_to 'Back to my Tweet Feed', tweets_path, method: :get %>
+                </p>
+                <p>
+                  <%= link_to 'Back to Home', index_path, method: :get %>
+                </p>
+                <p>
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-info" %>
+                </p>
+              <% else %>
+                <h4>Hash Tags</h4>
+                <hr>
+                 <% @tweet.tags.each do |tag| %>
+                  <p>#<%= tag.name %></p>
+              <% end %>
+              <p><%= link_to 'Back to Home', index_path, method: :get %></p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -41,9 +44,8 @@
 
     <div class="col-md-7 box">
       <div class="panel panel-default tweets ">
-        <div class="panel-body">
-          <%= link_to @tweet.user.username, method: :get %>
-              <strong><p>@<%= @tweet.user.username %> tweeted:</p></strong>
+        <div class="panel-body show-tweet">
+          <strong><p>@<%= @tweet.user.username %> tweeted:</p></strong>
           </div>
         </div>
 
@@ -57,6 +59,7 @@
          </div>
       </div>
     </div>
+
   </div>
 </div>
 

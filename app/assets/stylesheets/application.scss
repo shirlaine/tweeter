@@ -19,8 +19,12 @@ body {
   background-image: url(/assets/tweet-background.jpg);
 }
 
+.tweet-cont {
+  padding-top: 20px;
+  border-bottom: 1px solid gray;
+}
+
 .nav-link {
-  padding-left: 470px;
   color: white;
   justify-content: center;
 }
@@ -32,6 +36,10 @@ body {
 
 .navbar {
   background-color: #496d96;
+}
+
+.margin-50 {
+  margin-top: 50px;
 }
 
 .buttons {
@@ -52,6 +60,47 @@ body {
   padding: 5px;
 }
 
+.profile-img {
+  margin-top: 10px;
+}
+
+.thumb-img {
+  padding: 0px;
+  width: 100px;
+  height: 100px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.white {
+  background-color: white;
+  color: gray;
+}
+
+.tweet-name {
+  padding-left: 30px;
+}
+
+.show-tweet {
+  background-color: white;
+    align-items: center;
+    border-radius: 25px;
+    padding: 20px;
+    width: 50%;
+    margin-left: 80px;
+}
+
+.show-tweet-cont {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.control-label{
+     color: white !important; // some color
+     font-size: 22px;
+}
+
  .box {
     background-color: #496d96;
     margin: 5px;
@@ -60,6 +109,9 @@ body {
     align-items: center;
  }
 
+.lower-block {
+  margin: 30px;
+}
   .new-tweet {
     background-color: white;
     margin: 50px;
@@ -85,18 +137,51 @@ body {
     margin-left: 80px;
  }
 
+ .profile-name {
+    margin: 20px;
+    text-align: center;
+ }
+
  .align-list {
-    flex-direction: row;
     padding: 0px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    justify-content: center;
  }
 
  .hash-tags {
     margin-top: 20px;
  }
 
+.padding-10{
+  padding-left: 50px;
+}
+
  .list-item {
     margin: 5px;
-    padding: 0
+    padding: 0;
+    font-size: 15px;
    }
+
+  .list-group-item {
+    border: 0;
+    padding: auto;
+  }
+
+  .all-tweets {
+    background-color: #496d96;
+  }
+
+  .white-box {
+    background-color: white;
+    margin: 20px;
+    border-radius: 25px;
+    padding: 20px;
+    width: 80%;
+    height: 90%;
+    overflow-y: scroll;
+    margin: auto;
+    margin-top: 50px;
+  }
 
 

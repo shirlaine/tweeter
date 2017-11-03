@@ -6,10 +6,10 @@
     <div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          <%= link_to "Home", index_path, method: :get, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Notifications</a>
+          <%= link_to "My Tweet Feed", tweets_path, method: :get, class:"nav-link" %>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Messages</a>
@@ -17,11 +17,12 @@
       </ul>
     </div>
     <div>
-      <a class="nav-link" href="#"><img alt="Logo" src="/assets/twitter.png" class="twitter-logo"/></a>
     </div>
+      <a class="nav-link mx-auto" href="#"><img alt="Logo" src="/assets/twitter.png" class="twitter-logo"/></a>
   </div>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="text" placeholder="Search">
     <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>
+

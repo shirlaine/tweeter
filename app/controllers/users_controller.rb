@@ -2,7 +2,7 @@ class UsersController < BaseController
 
   def index
     @users = User.all
-    @tweets = Tweet.all
+    @tweets = Tweet.order(id: :desc)
   end
 
   def leaders
